@@ -8,11 +8,13 @@ import ipdb
 # location: project.select("ul.project-meta span.location-name")[0].text
 # percent_funded: project.select("ul.project-stats li.first.funded strong")[0].text.replace("%","")
 
+
 def create_project_dict():
     html = ''
     with open('./fixtures/kickstarter.html') as file:
         html = file.read()
     kickstarter = BeautifulSoup(html, 'html.parser')
+
     projects = {}
     # Iterate through the projects
     for project in kickstarter.select("li.project.grid_4"):
